@@ -14,7 +14,7 @@ func throughPointer() uint64 {
 
 		for mIdx, _ := range creative.Linear.MediaFiles {
 			mediaFile := &creative.Linear.MediaFiles[mIdx]
-			mediaFile.URI = vast.URI("/done")
+			mediaFile.URI = vast.URI(string(mediaFile.URI)+"/done")
 		}
 
 		creative.Sequence = 1
@@ -27,8 +27,7 @@ func usingCopy() uint64 {
 		//isUpdated := false
 
 		for mIdx, _ := range creative.Linear.MediaFiles {
-			mediaFile := &creative.Linear.MediaFiles[mIdx]
-			mediaFile.URI = vast.URI("/done")
+			creative.Linear.MediaFiles[mIdx].URI = vast.URI(string(creative.Linear.MediaFiles[mIdx].URI)+"/done")
 		}
 
 		creative.Sequence = 1
