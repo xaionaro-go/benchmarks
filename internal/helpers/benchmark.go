@@ -5,12 +5,12 @@ import (
 	"testing"
 )
 
-var someData uint64
+var SomeData uint64
 
 func BenchmarkConcurrent(b *testing.B, routines int, fn func() uint64) uint64 {
 	var wg sync.WaitGroup
 
-	someData = 0
+	SomeData = 0
 
 	b.ResetTimer()
 	for c := 0; c < routines; c++ {
@@ -25,11 +25,11 @@ func BenchmarkConcurrent(b *testing.B, routines int, fn func() uint64) uint64 {
 	wg.Wait()
 	b.StopTimer()
 
-	return someData
+	return SomeData
 }
 
 func Benchmark(b *testing.B, fn func() uint64) uint64 {
-	someData = 0
+	SomeData = 0
 
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
@@ -37,5 +37,5 @@ func Benchmark(b *testing.B, fn func() uint64) uint64 {
 	}
 	b.StopTimer()
 
-	return someData
+	return SomeData
 }
