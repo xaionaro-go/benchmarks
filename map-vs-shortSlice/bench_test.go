@@ -103,3 +103,60 @@ func BenchmarkStructMapCheck_iterations100(b *testing.B) {
 	numIterations = 100
 	helpers.Benchmark(b, structMapCheck)
 }
+
+var stringSlice = []string{
+	"one string",
+	"another string",
+	"more strings",
+	"and even more",
+	"and the last one...",
+}
+var stringSliceCompare = []string{
+	"one string",
+	"more strings",
+	"and the last one...",
+	"or not?",
+	"ok, the last one...",
+}
+
+func shortSliceCheckString_iter5() uint64 {
+	for _, str := range stringSliceCompare {
+		found := false
+		for _, v := range stringSlice {
+			if v == str {
+				found = true
+				break
+			}
+		}
+		if !found {
+			continue
+		}
+		helpers.SomeData++
+	}
+
+	return 0
+}
+
+func structMapCheckString_iter5() uint64 {
+	m := map[string]struct{}{}
+	for _, v := range stringSlice {
+		m[v] = struct{}{}
+	}
+
+	for _, str := range stringSliceCompare {
+		if _, ok := m[str]; !ok {
+			continue
+		}
+		helpers.SomeData++
+	}
+
+	return 0
+}
+
+func BenchmarkShortSliceCheckString_iterations5(b *testing.B) {
+	helpers.Benchmark(b, shortSliceCheckString_iter5)
+}
+
+func BenchmarkStructMapCheckString_iterations5(b *testing.B) {
+	helpers.Benchmark(b, structMapCheckString_iter5)
+}
