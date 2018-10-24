@@ -6,21 +6,18 @@ import (
 	"github.com/xaionaro-go/benchmarks/internal/helpers"
 )
 
-var m0 map[int]bool
-var m1 map[int]struct{}
-
 func boolMap() uint64 {
-	m0 = map[int]bool{}
+	m := map[int]bool{}
 	for i := 0; i < 1000000; i++ {
-		m0[i] = true
+		m[i] = true
 	}
 	return 0
 }
 
 func structMap() uint64 {
-	m1 = map[int]struct{}{}
+	m := map[int]struct{}{}
 	for i := 0; i < 1000000; i++ {
-		m1[i] = struct{}{}
+		m[i] = struct{}{}
 	}
 	return 0
 }
