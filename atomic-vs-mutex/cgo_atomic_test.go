@@ -23,7 +23,7 @@ func benchmarkWriteCGOAtomic(b *testing.B, routines int) {
 	wg.Wait()
 	b.StopTimer()
 
-	if someData != uint64(b.N) * uint64(routines) {
+	if someData != uint64(b.N)*uint64(routines) {
 		b.Errorf("someData != b.N: %v != %v", someData, b.N)
 	}
 }

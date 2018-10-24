@@ -12,22 +12,19 @@ func initCreatives() {
 		creatives = append(creatives, vast.Creative{
 			Linear: &vast.Linear{
 				SkipOffset: &vast.Offset{},
-				Duration: &[]vast.Duration{0}[0],
-				Icons: []vast.Icon{},
+				Duration:   &[]vast.Duration{0}[0],
+				Icons:      []vast.Icon{},
 				TrackingEvents: []vast.Tracking{
-					vast.Tracking {
+					vast.Tracking{
 						Offset: &vast.Offset{},
-						URI: vast.URI("uri"),
+						URI:    vast.URI("uri"),
 					},
 				},
-				MediaFiles: []vast.MediaFile{
-				},
-				CreativeExtensions: &vast.CreativeExtensions{
-				},
+				MediaFiles:         []vast.MediaFile{},
+				CreativeExtensions: &vast.CreativeExtensions{},
 			},
 			CompanionAds: &vast.CompanionAds{
-				Companions: []vast.Companion{
-				},
+				Companions: []vast.Companion{},
 			},
 		})
 	}

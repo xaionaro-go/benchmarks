@@ -8,7 +8,7 @@ import (
 
 func withDefer() (r uint64) {
 	defer func() {
-		r=1
+		r = 1
 	}()
 	return
 }
