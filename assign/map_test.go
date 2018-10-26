@@ -21,6 +21,7 @@ func dummy() uint64 {
 
 func assignMap() uint64 {
 	b = a
+	helpers.Dummy(b)
 	return 0
 }
 
