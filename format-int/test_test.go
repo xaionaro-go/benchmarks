@@ -46,6 +46,6 @@ func BenchmarkFormatFloatConcat(b *testing.B) {
 
 func BenchmarkSprintfFloatConcat(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		fmt.Sprintf(`%f%%`, float64(-42))
+		fmt.Sprintf(`%.0f%%`, float64(-42))
 	}
 }
