@@ -24,7 +24,7 @@ func checkWithoutReflect(v interface{}) bool {
 	return has
 }
 
-func withoutReflect() uint64 {
+func methodDirect() uint64 {
 	checkWithoutReflect(a)
 	checkWithoutReflect(b)
 	return 0
@@ -35,16 +35,16 @@ func checkWithReflect(i interface{}) bool {
 	return ok
 }
 
-func withReflect() uint64 {
+func methodViaReflect() uint64 {
 	checkWithReflect(a)
 	checkWithReflect(b)
 	return 0
 }
 
 func BenchmarkCheckMethodWithoutReflect(bench *testing.B) {
-	helpers.Benchmark(bench, withoutReflect)
+	helpers.Benchmark(bench, methodDirect)
 }
 
 func BenchmarkCheckMethodWithReflect(bench *testing.B) {
-	helpers.Benchmark(bench, withReflect)
+	helpers.Benchmark(bench, methodViaReflect)
 }
