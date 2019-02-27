@@ -11,7 +11,7 @@ import (
 var count uint32
 
 func counterIntn(module uint32) uint32 {
-	return atomic.AddUint32(&count, 1) % module
+	return atomic.AddUint32(&count, 6700417) % module
 }
 
 func BenchmarkCounterIntnSingle(b *testing.B) {
