@@ -8,10 +8,10 @@ import (
 	mrand "math/rand"
 )
 
-var count uint32
+var count uint64
 
-func counterIntn(module uint32) uint32 {
-	return atomic.AddUint32(&count, 6700417) % module
+func counterIntn(module uint64) uint64 {
+	return (atomic.AddUint64(&count, 6700417) / 115249) % module
 }
 
 func BenchmarkCounterIntnSingle(b *testing.B) {
