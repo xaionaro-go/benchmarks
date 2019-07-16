@@ -32,4 +32,3 @@ func BenchmarkDummy(b *testing.B) {
 func BenchmarkAssignMap(b *testing.B) {
 	helpers.Benchmark(b, assignMap)
 }
-

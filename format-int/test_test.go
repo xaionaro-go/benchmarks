@@ -40,7 +40,7 @@ func BenchmarkFormatFloat(b *testing.B) {
 
 func BenchmarkFormatFloatConcat(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		_ = strconv.FormatFloat(-42, 'f', 0, 64)+`%`
+		_ = strconv.FormatFloat(-42, 'f', 0, 64) + `%`
 	}
 }
 

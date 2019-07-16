@@ -8,7 +8,7 @@ import (
 func BenchmarkEncode(b *testing.B) {
 	data := []byte{0, 1, 2, 3}
 
-	for i:=0; i<b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		base64.StdEncoding.EncodeToString(data)
 	}
 }

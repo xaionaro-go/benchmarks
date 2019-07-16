@@ -2,8 +2,8 @@ package replacer
 
 import (
 	"bytes"
-	"testing"
 	"strings"
+	"testing"
 )
 
 func BenchmarkReplace(b *testing.B) {
@@ -36,4 +36,3 @@ func BenchmarkBytesReplace(b *testing.B) {
 		}
 	})
 }
-

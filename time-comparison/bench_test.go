@@ -1,18 +1,18 @@
 package test
 
 import (
-	`testing`
-	`time`
+	"testing"
+	"time"
 )
 
 var (
-	SomeBool bool
+	SomeBool      bool
 	SomeDuration0 = time.Second
 	SomeDuration1 = time.Second
 )
 
 func BenchmarkTimeDurationIsEqual(b *testing.B) {
-	for i:=0; i<b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		SomeBool = SomeDuration0 == SomeDuration1
 	}
 }
@@ -23,7 +23,7 @@ var (
 )
 
 func BenchmarkTimeTimeIsEqual(b *testing.B) {
-	for i:=0; i<b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		SomeBool = SomeTime0 == SomeTime1
 	}
 }
@@ -34,7 +34,7 @@ var (
 )
 
 func BenchmarkUint64IsEqual(b *testing.B) {
-	for i:=0; i<b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		SomeBool = SomeUint64_0 == SomeUint64_1
 	}
 }
