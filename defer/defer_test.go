@@ -26,6 +26,14 @@ func noDefer() uint64 {
 	return 1
 }
 
+func pseudoDefer() uint64 {
+	r := func() uint64 {
+		return 1
+	}()
+	_ = r // defer is here
+	return r
+}
+
 func BenchmarkDefer(b *testing.B) {
 	helpers.Benchmark(b, withDefer)
 }
@@ -36,4 +44,8 @@ func BenchmarkTwoDefers(b *testing.B) {
 
 func BenchmarkNoDefer(b *testing.B) {
 	helpers.Benchmark(b, noDefer)
+}
+
+func BenchmarkPseudoDefer(b *testing.B) {
+	helpers.Benchmark(b, pseudoDefer)
 }
