@@ -39,3 +39,11 @@ func Benchmark(b *testing.B, fn func() uint64) uint64 {
 
 	return SomeData
 }
+
+func BenchmarkNoReturn(b *testing.B, fn func()) {
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		fn()
+	}
+	b.StopTimer()
+}
