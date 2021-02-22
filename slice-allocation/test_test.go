@@ -10,6 +10,7 @@ import (
 
 func BenchmarkAllocatedSliceIfaceBoxing(b *testing.B) {
 	b.ReportAllocs()
+	b.SetBytes(0)
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		s := []byte{}
@@ -19,6 +20,7 @@ func BenchmarkAllocatedSliceIfaceBoxing(b *testing.B) {
 
 func BenchmarkNilSliceIfaceBoxing(b *testing.B) {
 	b.ReportAllocs()
+	b.SetBytes(0)
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		var s []byte
