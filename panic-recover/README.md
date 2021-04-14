@@ -2,10 +2,12 @@
 goos: linux
 goarch: amd64
 pkg: github.com/xaionaro-go/benchmarks/panic-recover
-BenchmarkPanicRecover-8   	24628460	       276 ns/op	       0 B/op	       0 allocs/op
-BenchmarkErrorFunc-8      	1000000000	         1.09 ns/op
+BenchmarkPanicRecover-8       	34554044	       213 ns/op	       0 B/op	       0 allocs/op
+BenchmarkErrorFunc-8          	1000000000	         0.975 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPanicRecoverDeep-8   	 1718076	      3362 ns/op	       0 B/op	       0 allocs/op
+BenchmarkErrorFuncDeep-8      	 9987912	       697 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok  	github.com/xaionaro-go/benchmarks/panic-recover	8.243s
+ok  	github.com/xaionaro-go/benchmarks/panic-recover	25.476s
 ```
 
 ```
