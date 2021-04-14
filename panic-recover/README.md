@@ -35,3 +35,5 @@ Showing top 10 nodes out of 32
      160ms  2.26% 75.28%      160ms  2.26%  runtime.gogo
      150ms  2.12% 77.40%      150ms  2.12%  runtime.gorecover
 ```
+
+Here's the `runtime.gopanic` function implementation: https://github.com/golang/go/blob/585b52261c1b4e26b029616581ee0e891ad49183/src/runtime/panic.go#L951
