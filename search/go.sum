@@ -1,0 +1,4 @@
+github.com/xaionaro-go/rand v0.0.0-20191005105903-aba1befc54a5 h1:99a+XCYQ9ed4WjW7s2wJXjTUejOznFL+bOKMJtVLh80=
+github.com/xaionaro-go/rand v0.0.0-20191005105903-aba1befc54a5/go.mod h1:7GUXx8dYHRMAYntgs4o1Vm1IPZ7EIpGbev68nKIKGMQ=
+golang.org/x/exp v0.0.0-20220602145555-4a0574d9293f h1:KK6mxegmt5hGJRcAnEDjSNLxIRhZxDcgwMbcO/lMCRM=
+golang.org/x/exp v0.0.0-20220602145555-4a0574d9293f/go.mod h1:yh0Ynu2b5ZUe3MQfp2nM0ecK7wsgouWTDN0FNeJuIys=
