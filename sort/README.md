@@ -1,0 +1,83 @@
+```
+goos: linux
+goarch: amd64
+pkg: github.com/xaionaro-go/benchmarks/sort
+cpu: 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz
+BenchmarkSort/NoSort/0-16       	587580124	         2.029 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/1-16       	499396360	         2.514 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/2-16       	437217790	         2.771 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/4-16       	384624080	         2.833 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/8-16       	303918303	         4.005 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/16-16      	234187056	         4.993 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/32-16      	177502531	         6.839 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/64-16      	138745230	         7.783 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/128-16     	121318443	         9.536 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/256-16     	70790412	        16.66 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/512-16     	39632384	        29.95 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/1024-16    	24350238	        49.30 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/2048-16    	12688231	        95.33 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/4096-16    	 2402776	       498.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/NoSort/10000-16   	 1000000	      1230 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/StdQuicksort/0-16 	35017272	        30.87 ns/op	      24 B/op	       1 allocs/op
+BenchmarkSort/StdQuicksort/1-16 	33754094	        32.27 ns/op	      24 B/op	       1 allocs/op
+BenchmarkSort/StdQuicksort/2-16 	16953147	        67.98 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/4-16 	15102376	        79.33 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/8-16 	10940175	       104.2 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/16-16         	 4766230	       227.2 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/32-16         	 2449568	       488.9 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/64-16         	 1000000	      1000 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/128-16        	  568078	      2197 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/256-16        	  232898	      5176 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/512-16        	  108650	     11989 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/1024-16       	   35511	     34627 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/2048-16       	   10000	    109613 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/4096-16       	    4284	    275777 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/StdQuicksort/10000-16      	    1509	    775812 ns/op	      56 B/op	       2 allocs/op
+BenchmarkSort/Bubble/0-16                	438364651	         2.829 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/1-16                	384251361	         3.180 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/2-16                	188602599	         6.498 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/4-16                	124861570	         9.570 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/8-16                	30164044	        39.74 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/16-16               	 9004928	       138.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/32-16               	 2112316	       590.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/64-16               	  506008	      2426 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/128-16              	   85813	     13663 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/256-16              	   21229	     57757 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/512-16              	    5322	    233107 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/1024-16             	    1515	    782197 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/2048-16             	     415	   2900907 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/4096-16             	     100	  11722754 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Bubble/10000-16            	      14	  81592833 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/0-16             	350597175	         3.599 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/1-16             	294849558	         4.071 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/2-16             	141021709	         8.433 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/4-16             	78925087	        15.80 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/8-16             	28668174	        43.10 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/16-16            	15663252	        78.20 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/32-16            	 5910158	       202.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/64-16            	 2750216	       451.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/128-16           	 1229742	       978.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/256-16           	  527787	      2203 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/512-16           	  258984	      4720 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/1024-16          	   53437	     22657 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/2048-16          	   18830	     63312 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/4096-16          	    7573	    158411 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Quicksort/10000-16         	    2769	    441413 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Merge/0-16                 	373041674	         3.592 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Merge/1-16                 	325144098	         3.758 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSort/Merge/2-16                 	51172936	        23.23 ns/op	      16 B/op	       1 allocs/op
+BenchmarkSort/Merge/4-16                 	17533508	        65.44 ns/op	      64 B/op	       3 allocs/op
+BenchmarkSort/Merge/8-16                 	 7357629	       157.1 ns/op	     192 B/op	       7 allocs/op
+BenchmarkSort/Merge/16-16                	 3069198	       379.6 ns/op	     512 B/op	      15 allocs/op
+BenchmarkSort/Merge/32-16                	 1424478	       804.7 ns/op	    1280 B/op	      31 allocs/op
+BenchmarkSort/Merge/64-16                	  659247	      1673 ns/op	    3072 B/op	      63 allocs/op
+BenchmarkSort/Merge/128-16               	  324118	      3477 ns/op	    7168 B/op	     127 allocs/op
+BenchmarkSort/Merge/256-16               	  156690	      7955 ns/op	   16384 B/op	     255 allocs/op
+BenchmarkSort/Merge/512-16               	   67141	     16428 ns/op	   36864 B/op	     511 allocs/op
+BenchmarkSort/Merge/1024-16              	   24772	     48710 ns/op	   81920 B/op	    1023 allocs/op
+BenchmarkSort/Merge/2048-16              	    8563	    119342 ns/op	  180224 B/op	    2047 allocs/op
+BenchmarkSort/Merge/4096-16              	    4194	    275512 ns/op	  393216 B/op	    4095 allocs/op
+BenchmarkSort/Merge/10000-16             	    1621	    758572 ns/op	 1112704 B/op	    9999 allocs/op
+PASS
+ok  	github.com/xaionaro-go/benchmarks/sort	110.554s
+```
