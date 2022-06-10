@@ -33,6 +33,7 @@ func BenchmarkSort(b *testing.B) {
 		{Name: "Bubble", Func: sort.Bubble[uint]},
 		{Name: "Quicksort", Func: sort.Quicksort[uint]},
 		{Name: "Merge", Func: sort.Merge[uint]},
+		{Name: "MergePreallocated", Func: MergeSortPreallocated[uint]},
 	} {
 		b.Run(testCase.Name, func(b *testing.B) {
 			sortFunc := testCase.Func
