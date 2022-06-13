@@ -2,6 +2,7 @@ package search
 
 import (
 	"fmt"
+	"math/rand"
 	"reflect"
 	"runtime"
 	"sort"
@@ -25,6 +26,73 @@ func makeSlice[T constraints.Ordered](size uint) []T {
 		}
 	}
 	return s
+}
+
+func benchmarkPrepareLinear[T constraints.Ordered](b *testing.B, size uint) {
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		// noop
+	}
+}
+
+func benchmarkPrepareBinary[T constraints.Ordered](b *testing.B, size uint) {
+	unsorted := makeSlice[T](size)
+	rand.Shuffle(len(unsorted), func(i, j int) {
+		unsorted[i], unsorted[j] = unsorted[j], unsorted[i]
+	})
+	runtime.GC()
+	runtime.GC()
+	amountOfArrays := (1000 / size) + 3
+	ss := make([][]T, amountOfArrays)
+	for idx := range ss {
+		ss[idx] = makeSlice[T](size)
+	}
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		if i%int(amountOfArrays) == 0 {
+			b.StopTimer()
+			for idx := range ss {
+				copy(ss[idx], unsorted)
+			}
+			b.StartTimer()
+		}
+		s := ss[i%int(amountOfArrays)]
+		sort.Slice(s, func(i, j int) bool {
+			return s[i] < s[j]
+		})
+	}
+}
+
+func benchmarkPrepareMap[T constraints.Ordered](b *testing.B, size uint) {
+	rng := mathrand.NewWithSeed(0)
+	s := makeSlice[T](size)
+	runtime.GC()
+	runtime.GC()
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		m := make(map[T]uint, size)
+		for idx := uint(0); idx < size; idx++ {
+			m[s[mathrand.ReduceUint32(rng.Uint32Xorshift(), uint32(size))]] = idx
+		}
+	}
+}
+
+func benchmarkPrepareSyncMap[T constraints.Ordered](b *testing.B, size uint) {
+	rng := mathrand.NewWithSeed(0)
+	s := makeSlice[T](size)
+	runtime.GC()
+	runtime.GC()
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		var m sync.Map
+		for idx := uint(0); idx < size; idx++ {
+			m.Store(s[mathrand.ReduceUint32(rng.Uint32Xorshift(), uint32(size))], idx)
+		}
+	}
 }
 
 func benchmarkGetLinear[T constraints.Ordered](b *testing.B, size uint) {
@@ -194,12 +262,27 @@ func benchmarkAddSyncMap[T constraints.Ordered](b *testing.B, size uint) {
 
 func Benchmark(b *testing.B) {
 	type benchFunc func(b *testing.B, size uint)
-	for _, actionType := range []string{"get", "add"} {
+	for _, actionType := range []string{"prepare", "get", "add"} {
 		b.Run(actionType, func(b *testing.B) {
 			for _, keyType := range []reflect.Kind{reflect.Int, reflect.String} {
 				var _benchmarkLinear, _benchmarkBinary, _benchmarkMap, _benchmarkSyncMap benchFunc
 				limit := uint(1024 * 1024)
 				switch actionType {
+				case "prepare":
+					switch keyType {
+					case reflect.Int:
+						_benchmarkLinear = benchmarkPrepareLinear[int]
+						_benchmarkBinary = benchmarkPrepareBinary[int]
+						_benchmarkMap = benchmarkPrepareMap[int]
+						_benchmarkSyncMap = benchmarkPrepareSyncMap[int]
+					case reflect.String:
+						_benchmarkLinear = benchmarkPrepareLinear[string]
+						_benchmarkBinary = benchmarkPrepareBinary[string]
+						_benchmarkMap = benchmarkPrepareMap[string]
+						_benchmarkSyncMap = benchmarkPrepareSyncMap[string]
+					default:
+						panic(keyType.String())
+					}
 				case "get":
 					switch keyType {
 					case reflect.Int:
